@@ -1,0 +1,76 @@
+.home {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.home-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 90vh;
+    color: #5759eb;
+}
+
+.navbar-color {
+    background-color: #5759eb;
+}
+
+.customer-page {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.customer-page div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    background-color: #7173e6;
+    color: white;
+}
+
+.customer-add {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    margin: 50px;
+    width: 400px;
+    border-radius: 25px;
+    padding: 70px;
+}
+
+.customer-delete {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    margin: 50px;
+    width: 400px;
+    border-radius: 25px;
+    padding: 70px;
+}
+
+.customer-update {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    margin: 50px;
+    width: 400px;
+    border-radius: 25px;
+    padding: 70px;
+}
