@@ -2,12 +2,13 @@ import { useState } from "react";
 import { Form, InputGroup, Container, Button } from "react-bootstrap";
 import NavBar from "./NavBar";
 import axios from "axios";
+import { useMutation } from "react-query";
 
 function ProductAdd() {
     const [price, setPrice] = useState("");
     const [name, setName] = useState("");
 
-    const addProduct = async () => {
+    const addProduct = useMutation(async () => {
         try {
             const response = await axios.post("http://127.0.0.1:5000/products", {
                 name: name,
@@ -18,9 +19,9 @@ function ProductAdd() {
             setPrice("");
             setName("");
         } catch (error) {
-            console.error(error);
+            console.log(error.response.data.message);
         }
-    };
+    });
 
     return (
         <div>
@@ -46,7 +47,7 @@ function ProductAdd() {
                     />
                 </InputGroup>
 
-                <Button onClick={addProduct} variant="success" disabled={!name || !price}>
+                <Button onClick={() => addProduct.mutate()} variant="success" disabled={!name || !price}>
                     Add Product
                 </Button>
             </Container>

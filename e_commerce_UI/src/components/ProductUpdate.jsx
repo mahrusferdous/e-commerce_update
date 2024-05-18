@@ -2,13 +2,14 @@ import { useState } from "react";
 import { Form, InputGroup, Container, Button } from "react-bootstrap";
 import NavBar from "./NavBar";
 import axios from "axios";
+import { useMutation } from "react-query";
 
 function ProductUpdate() {
     const [updateProd, setUpdateProd] = useState("");
     const [name, setName] = useState("");
     const [price, setPrice] = useState("");
 
-    const updateProduct = async () => {
+    const updateProduct = useMutation(async () => {
         try {
             const response = await axios.put(`http://127.0.0.1:5000/products/${updateProd}`, {
                 name: name,
@@ -19,9 +20,9 @@ function ProductUpdate() {
             setName("");
             setPrice("");
         } catch (error) {
-            console.error(error);
+            console.log(error.response.data.message);
         }
-    };
+    });
 
     return (
         <div>
@@ -59,7 +60,7 @@ function ProductUpdate() {
 
                 <Button
                     variant="primary"
-                    onClick={updateProduct}
+                    onClick={() => updateProduct.mutate()}
                     disabled={!updateProd || !name || !price}
                 >
                     Update Product
