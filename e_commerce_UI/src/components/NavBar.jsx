@@ -24,7 +24,9 @@ function NavBar() {
                             <NavDropdown.Item href="/product/delete">Delete Product</NavDropdown.Item>
                             <NavDropdown.Item href="/product/update">Update Product</NavDropdown.Item>
                         </NavDropdown>
-                        <Button variant="success">Login</Button>
+                        <Button variant="success" href="/login">
+                            Login/Create
+                        </Button>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

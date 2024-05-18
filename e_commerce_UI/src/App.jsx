@@ -11,6 +11,7 @@ import Product from "./components/Product";
 import ProductAdd from "./components/ProductAdd";
 import ProductDelete from "./components/ProductDelete";
 import ProductUpdate from "./components/ProductUpdate";
+import Login from "./components/Login";
 
 function App() {
     const queryClient = new QueryClient();
@@ -20,6 +21,7 @@ function App() {
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<Home />} />
+                    <Route path="/login" element={<Login />} />
                     <Route path="/customer" element={<Customer />} />
                     <Route path="/customer/add" element={<CustomerAdd />} />
                     <Route path="/customer/delete" element={<CustomerDelete />} />
