@@ -2,20 +2,20 @@ import { useState } from "react";
 import NavBar from "./NavBar";
 import axios from "axios";
 import { Form, InputGroup, Container, Button } from "react-bootstrap";
+import { useMutation } from "react-query";
 
 function ProductDelete() {
     const [deleteProd, setDeleteProd] = useState();
 
-    const deleteProduct = async () => {
+    const deleteProduct = useMutation(async () => {
         try {
             const response = await axios.delete(`http://127.0.0.1:5000/products/${deleteProd}`);
             alert(response.data.message);
-            console.log(response.data);
             setDeleteProd("");
         } catch (error) {
             console.error(error);
         }
-    };
+    });
 
     return (
         <div>
@@ -30,7 +30,7 @@ function ProductDelete() {
                         onChange={(e) => setDeleteProd(e.target.value)}
                     />
                 </InputGroup>
-                <Button variant="danger" onClick={deleteProduct} disabled={!deleteProd}>
+                <Button variant="danger" onClick={deleteProduct.mutate()} disabled={!deleteProd}>
                     Delete Product
                 </Button>
             </Container>
