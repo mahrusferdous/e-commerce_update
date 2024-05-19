@@ -1,15 +1,15 @@
-import { Nav, Navbar, NavDropdown, Container, Button } from "react-bootstrap";
+import { Nav, Navbar, NavDropdown, Container, Button, Badge } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import "../App.css";
 import { logout } from "../features/userSlice";
 import { useDispatch } from "react-redux";
+import { CartFill } from "react-bootstrap-icons";
 
 function NavBar() {
     const user = useSelector((state) => state.user);
     const dispatch = useDispatch();
 
     const handleLogout = () => {
-        // sessionStorage.removeItem("user");
         dispatch(logout());
     };
 
@@ -35,6 +35,12 @@ function NavBar() {
                             <NavDropdown.Item href="/product/delete">Delete Product</NavDropdown.Item>
                             <NavDropdown.Item href="/product/update">Update Product</NavDropdown.Item>
                         </NavDropdown>
+
+                        <Container className="d-flex flex-row justify-content-around align-items-center">
+                            <CartFill color="white"></CartFill>
+                            <Badge bg="secondary">10</Badge>
+                        </Container>
+
                         {user.isLogged ? (
                             <div style={{ display: "flex" }}>
                                 <Nav.Link disabled className="mx-3">

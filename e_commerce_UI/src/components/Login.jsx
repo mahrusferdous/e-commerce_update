@@ -46,7 +46,6 @@ function Login() {
         if (account) {
             account.map((acc) => {
                 if (acc.username == username && acc.password == pass) {
-                    // sessionStorage.setItem("user", JSON.stringify({ name: acc.username, isLogged: true }));
                     dispatch(login({ name: acc.username, isLogged: true }));
                     alert("Login successful");
                     navigate("/");
@@ -57,7 +56,6 @@ function Login() {
         }
     }, [username, pass, account]);
 
-    // create a login page
     return (
         <div>
             <NavBar />
