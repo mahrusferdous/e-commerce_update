@@ -14,6 +14,7 @@ import ProductAdd from "./components/ProductAdd";
 import ProductDelete from "./components/ProductDelete";
 import ProductUpdate from "./components/ProductUpdate";
 import Login from "./components/Login";
+import Cart from "./components/Cart";
 
 function App() {
     const queryClient = new QueryClient();
@@ -25,6 +26,7 @@ function App() {
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/login" element={<Login />} />
+                        <Route path="/cart" element={<Cart />} />
                         <Route path="/customer" element={<Customer />} />
                         <Route path="/customer/add" element={<CustomerAdd />} />
                         <Route path="/customer/delete" element={<CustomerDelete />} />

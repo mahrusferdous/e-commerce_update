@@ -1,13 +1,15 @@
 import { Nav, Navbar, NavDropdown, Container, Button, Badge } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import "../App.css";
 import { logout } from "../features/userSlice";
-import { useDispatch } from "react-redux";
 import { CartFill } from "react-bootstrap-icons";
+import { useNavigate } from "react-router-dom";
 
 function NavBar() {
     const user = useSelector((state) => state.user);
+    const cart = useSelector((state) => state.cart);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const handleLogout = () => {
         dispatch(logout());
@@ -36,9 +38,12 @@ function NavBar() {
                             <NavDropdown.Item href="/product/update">Update Product</NavDropdown.Item>
                         </NavDropdown>
 
-                        <Container className="d-flex flex-row justify-content-around align-items-center">
+                        <Container
+                            onClick={() => navigate("/cart")}
+                            className="d-flex flex-row justify-content-around align-items-center"
+                        >
                             <CartFill color="white"></CartFill>
-                            <Badge bg="secondary">10</Badge>
+                            <Badge bg="secondary">{cart.cart.length}</Badge>
                         </Container>
 
                         {user.isLogged ? (
