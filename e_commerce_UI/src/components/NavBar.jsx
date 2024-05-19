@@ -1,7 +1,18 @@
 import { Nav, Navbar, NavDropdown, Container, Button } from "react-bootstrap";
+import { useSelector } from "react-redux";
 import "../App.css";
+import { logout } from "../features/userSlice";
+import { useDispatch } from "react-redux";
 
 function NavBar() {
+    const user = useSelector((state) => state.user);
+    const dispatch = useDispatch();
+
+    const handleLogout = () => {
+        // sessionStorage.removeItem("user");
+        dispatch(logout());
+    };
+
     return (
         <Navbar variant="dark" expand="lg" className="navbar-color">
             <Container>
@@ -24,9 +35,20 @@ function NavBar() {
                             <NavDropdown.Item href="/product/delete">Delete Product</NavDropdown.Item>
                             <NavDropdown.Item href="/product/update">Update Product</NavDropdown.Item>
                         </NavDropdown>
-                        <Button variant="success" href="/login">
-                            Login/Create
-                        </Button>
+                        {user.isLogged ? (
+                            <div style={{ display: "flex" }}>
+                                <Nav.Link disabled className="mx-3">
+                                    {user.name}
+                                </Nav.Link>
+                                <Button variant="danger" href="/" onClick={handleLogout} className="mx-3">
+                                    Logout
+                                </Button>
+                            </div>
+                        ) : (
+                            <Button variant="success" href="/login">
+                                Login/Create
+                            </Button>
+                        )}
                     </Nav>
                 </Navbar.Collapse>
             </Container>
