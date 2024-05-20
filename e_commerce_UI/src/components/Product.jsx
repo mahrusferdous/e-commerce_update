@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo } from "react";
 import axios from "axios";
 import NavBar from "./NavBar";
 import { Button, Card } from "react-bootstrap";
-import picture from "../assets/people.svg";
+import picture from "../assets/food.svg";
 import { useQuery } from "react-query";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../features/cartSlice";
