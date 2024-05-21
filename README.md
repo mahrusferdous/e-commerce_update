@@ -26,6 +26,12 @@ This is a e-commerce UI project that I have created using ReactJS. This project 
 -   Displays item on the cart
 -   Able to delete Item from cart
 
+## Login
+
+-   Able to login
+-   Stays logged in
+-   Able to logout
+
 ## NOTE
 
 -   Issues with Testing
