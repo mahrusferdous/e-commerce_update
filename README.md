@@ -15,15 +15,17 @@ This is a e-commerce UI project that I have created using ReactJS. This project 
 
 ## Product Catalog Page
 
-## Installation
+-   The product page gets all the api data from the json file and displays it in a card format
+-   The product add page has a form that allows the user to add a new customer to the list
+-   The product edit page allows the user to edit the customer details
+-   The product delete page allows the user to delete the customer from the list
 
-1. Clone the repository
-2. Run `npm install` to install the dependencies for the UI
-3. Run `npm start` to start the UI
-4. Run the API server by flask run command
+## Add to Cart
+
+-   Adds items to cart
+-   Displays item on the cart
+-   Able to delete Item from cart
 
 ## NOTE
 
--   Issues with Products API
--   Unable to add products to the cart
--   Unable to view the cart items
+-   Issues with Testing
